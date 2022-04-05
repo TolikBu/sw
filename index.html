@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StarWars</title>
+    <link rel="stylesheet" href="./dist/css/style.css" />
+    <script src="./main.js" defer></script>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Pacifico&display=swap" rel="stylesheet" /> -->
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-wrapper">
+          <a href="#" class="header-logo">
+            <img src="./img/logo.png" alt="logo" class="header-logo__image" />
+          </a>
+          <a href="#" class="header-api">
+            <div class="header-api__text">API документация</div>
+          </a>
+        </div>
+      </div>
+      <!-- /.container -->
+    </header>
+    <!-- /.header -->
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-wrapper">
+            <div class="hero-search">
+              <form action="" class="hero-form">
+                <input type="text" class="hero-form__input" />
+                <button type="submit" class="hero-form__button">Поиск</button>
+              </form>
+            </div>
+            <!-- /.hero-search -->
+            <div class="hero-card">
+              <div class="hero-card__header">
+                <div class="hero-card__name">Luke Skywalker</div>
+              </div>
+              <div class="hero-card__parameters">
+                <div class="hero-card__gender">
+                  <div class="hero-card__gender-name">Пол</div>
+                  <div class="hero-card__gender-value">Male</div>
+                </div>
+                <div class="hero-card__height">
+                  <div class="hero-card__height-name">Рост</div>
+                  <div class="hero-card__height-value">172 см</div>
+                </div>
+                <div class="hero-card__weight">
+                  <div class="hero-card__weight-name">Вес</div>
+                  <div class="hero-card__weight-value">77 кг</div>
+                </div>
+                <div class="hero-card__planet">
+                  <div class="hero-card__planet-name">Рожна планета</div>
+                  <div class="hero-card__planet-value">Tatooine</div>
+                </div>
+                <div class="hero-card__color">
+                  <div class="hero-card__color-name">Цвет глаз</div>
+                  <div class="hero-card__color-value"></div>
+                </div>
+              </div>
+            </div>
+            <!-- /.hero-card -->
+          </div>
+          <img src="./img/dartwider.png" alt="Dart Wider" class="hero-card__image" />
+          <!-- /.hero-wrapper -->
+        </div>
+      </section>
+      <!-- /.hero -->
+    </main>
+  </body>
+</html>
