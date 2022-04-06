@@ -631,14 +631,9 @@ img {
     padding: 15px 36px;
   }
   .hero-card__image {
-    position: absolute;
-    width: 351px;
-    height: 358px;
     left: 50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
-    bottom: -338px;
-    z-index: -10;
   }
 }
 /*# sourceMappingURL=style.css.map */
