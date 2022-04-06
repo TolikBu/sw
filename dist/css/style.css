@@ -364,15 +364,15 @@ button, a {
 
 @font-face {
   font-family: 'Montserrat';
-  src: url("montserratbold.woff2") format("woff2"), url("montserratbold.woff") format("woff"), url("montserratbold.ttf") format("truetype");
-  font-weight: 600;
+  src: local("Montserrat"), url("../fonts/montserratbold.woff2") format("woff2"), url("../fonts/montserratbold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 .header {
   padding: 25px 0;
-  background-color: #000;
+  background-color: #0F0F03;
 }
 
 .header-wrapper {
@@ -402,10 +402,11 @@ button, a {
 }
 
 .hero {
-  padding: 110px 0;
+  padding: 110px 0 186px 0;
 }
 
 .hero-wrapper {
+  position: relative;
   max-width: 598px;
   margin: auto;
 }
@@ -439,7 +440,7 @@ button, a {
 .hero-form__button {
   padding: 15px 56px;
   background-color: #FFE81F;
-  color: #000;
+  color: #0F0F03;
   border: none;
   outline: none;
 }
@@ -460,12 +461,119 @@ button, a {
 }
 
 .hero-card__name {
+  display: block;
   padding: 15px 30px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
   font-size: 30px;
   line-height: 37px;
   color: #fff;
+}
+
+.hero-card__parameters {
+  padding: 15px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.hero-card__parameter {
+  max-width: 277px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 15px;
+  color: #0F0F03;
+}
+
+.hero-card__parameter-name {
+  display: block;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.hero-card__parameter-value {
+  display: block;
+  width: 83px;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.hero-card__parameter-aye {
+  width: 20px;
+  height: 20px;
+  margin-right: 63px;
+  background-color: #0000ff;
+}
+
+.hero-card__image {
+  position: absolute;
+  right: -205px;
+  bottom: -177px;
+  z-index: -10;
+}
+
+.footer {
+  padding: 30px 0 25px 0;
+  background-color: #0F0F03;
+  color: #fff;
+}
+
+.footer-logo {
+  max-width: 186px;
+  margin-bottom: 117px;
+}
+
+.footer-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-link__icon {
+  margin-right: 12px;
+}
+
+.footer-link__text {
+  display: block;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.footer-copyrite {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  font-size: 15px;
+  line-height: 18px;
 }
 /*# sourceMappingURL=style.css.map */

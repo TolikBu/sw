@@ -1,6 +1,7 @@
 .hero
-  padding: 110px 0
+  padding: 110px 0 186px 0
   &-wrapper
+    position: relative
     max-width: 598px
     margin: auto
   &-search
@@ -16,7 +17,7 @@
       border: none
     &__button
       padding: 15px 56px
-      background-color: #FFE81F
+      background-color: $yello
       color: $black
       border: none
       outline: none
@@ -29,12 +30,43 @@
     border-radius: 12px
     overflow: hidden
     &__header
-      background-color: #2F3130
+      background-color: $gray
     &__name
+      display: block
       padding: 15px 30px
-      font-family: 'Montserrat', sans-serif
+      font-family: 'Montserrat'
       font-style: normal
       font-weight: 600
       font-size: 30px
       line-height: 37px
       color: $white
+    &__parameters
+      padding: 15px 30px
+      display: flex
+      flex-direction: column
+    &__parameter
+      max-width: 277px
+      height: 20px
+      display: flex
+      justify-content: space-between
+      margin-bottom: 15px
+      color: $black
+      &-name
+        display: block
+        font-size: 16px
+        line-height: 19px
+      &-value
+        display: block
+        width: 83px
+        font-size: 16px
+        line-height: 19px
+      &-aye
+        width: 20px
+        height: 20px
+        margin-right: 63px
+        background-color: #0000ff
+    &__image
+      position: absolute
+      right: -205px
+      bottom: -177px
+      z-index: -10
