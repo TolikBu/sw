@@ -634,6 +634,7 @@ img {
     left: 50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
+    bottom: -338px;
   }
 }
 /*# sourceMappingURL=style.css.map */
