@@ -79,21 +79,6 @@ const requestData = () => {
 }
 requestData();
 
-// валидация ввода цифр
-// const validate = () => {
-//   console.log(input.value);
-//   if (input.value.match(/[0-9]/gi)) {
-//     render();
-//   } else {
-//     statusBlock.textContent = 'Введите число';
-//     form.after(statusBlock)
-//     setInterval(() => {
-//       statusBlock.remove(form);
-//     }, 2000);
-//   }
-// };
-// validate()
-
 // функция стилей блока с предупреждением 
 const error = () => {
   statusBlock.style.padding = '9px 10px';
