@@ -1,43 +1,98 @@
 'use strict'
 
 const input = document.querySelector('.hero-form__input');
+const form = document.querySelector('.hero-form');
 const btnSubmit = document.querySelector('.hero-form__button')
-const gender = document.querySelector('.gender');
-const height = document.querySelector('.hright');
-const width = document.querySelector('.width');
-const planets = document.querySelector('.planets');
-const eye = document.querySelector('.color-eye');
 const statusBlock = document.createElement('div');
 
 
-const enterNum = () => {
-  input.addEventListener('change', (item) => {
-    let id = item.target.value;
 
-    btnSubmit.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      sendData(`https://swapi.dev/api/people/${id}/`);
-      id = '';
-      input.value = '';
-    })
-  })
-}
-enterNum();
-
-const sendData = (url) => {
+// функция получение параметров персонажа
+const sendPeople = (url) => {
   return fetch(url, {
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   }).then(res => {
-    if (!res.ok) {
-      return res.json();
+    if (res.ok) {
+      res.json().then((data) => {
+        document.querySelector('.hero-card__name').textContent = data.name;
+        document.querySelector('.gender').textContent = data.gender;
+        document.querySelector('.height').textContent = data.height;
+        document.querySelector('.width').textContent = data.mass;
+        document.querySelector('.color-eye').style.backgroundColor = data.eye_color;
+      })
+    } else {
+      statusBlock.textContent = 'Введите исло от 1 до 87';
+      form.after(statusBlock)
+      setTimeout(() => {
+        statusBlock.remove(form);
+      }, 2000);
     }
+  })
+};
 
-    return res.json().then(error => {
+// функция получения планеты
+const sendPlanets = (url) => {
+  return fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(res => {
+    if (res.ok) {
+      res.json().then((data) => {
+        document.querySelector('.planets').textContent = data.name;
+      })
+    }
+  })
+};
+
+// функция отрисовки полученных пааметров
+const render = () => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let id = input.value;
+    // id = Number(id)
+
+    sendPeople(`https://swapi.dev/api/people/${id}/`).catch((error) => {
+      statusBlock.textContent = 'Проблемы с сетью';
+      form.after(statusBlock)
+      setTimeout(() => {
+        statusBlock.remove(form);
+      }, 2000);
+    });
+
+    sendPlanets(`https://swapi.dev/api/planets/${id}/`).catch((error) => {
       console.log(error);
     });
-  }).then(res => console.log(res))
-  
-};
+
+    input.value = '';
+  });
+ 
+}
+render();
+ 
+  // валидация ввода цифр
+  // const validate = () => {
+  //   console.log(input.value);
+  //   if (input.value.match(/[0-9]/gi)) {
+  //     render();
+  //   } else {
+  //     statusBlock.textContent = 'Введите число';
+  //     form.after(statusBlock)
+  //     setInterval(() => {
+  //       statusBlock.remove(form);
+  //     }, 2000);
+  //   }
+  // };
+  // validate()
+
+// функция стилей блока с предупреждением 
+const error = () => {
+  statusBlock.style.padding = '9px 10px';
+  statusBlock.style.color = 'red';
+}
+error()
+
