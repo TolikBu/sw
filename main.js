@@ -51,7 +51,7 @@ const requestData = () => {
     let isError = false;
 
     if (!/[\d]/g.test(input.value) && input.value !== '') {
-      statusBlock.textContent = 'Введите исло от 1 до 87';
+      statusBlock.textContent = 'Введите число от 1 до 83';
       form.after(statusBlock)
       setTimeout(() => {
         statusBlock.remove(form);
