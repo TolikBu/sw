@@ -8,7 +8,7 @@ const statusBlock = document.createElement('div');
 
 
 // функция получение параметров персонажа
-const sendPeople = (url) => {
+const renderPeople = (url) => {
   return fetch(url, {
     method: 'GET',
     headers: {
@@ -23,18 +23,12 @@ const sendPeople = (url) => {
         document.querySelector('.width').textContent = data.mass;
         document.querySelector('.color-eye').style.backgroundColor = data.eye_color;
       })
-    } else {
-      statusBlock.textContent = 'Введите исло от 1 до 87';
-      form.after(statusBlock)
-      setTimeout(() => {
-        statusBlock.remove(form);
-      }, 2000);
     }
   })
 };
 
 // функция получения планеты
-const sendPlanets = (url) => {
+const renderPlanets = (url) => {
   return fetch(url, {
     method: 'GET',
     headers: {
@@ -50,44 +44,55 @@ const sendPlanets = (url) => {
 };
 
 // функция отрисовки полученных пааметров
-const render = () => {
+const requestData = () => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     let id = input.value;
-    // id = Number(id)
+    let isError = false;
 
-    sendPeople(`https://swapi.dev/api/people/${id}/`).catch((error) => {
-      statusBlock.textContent = 'Проблемы с сетью';
+    if (!/[\d]/g.test(input.value) && input.value !== '') {
+      statusBlock.textContent = 'Введите исло от 1 до 87';
       form.after(statusBlock)
       setTimeout(() => {
         statusBlock.remove(form);
       }, 2000);
-    });
+    }
 
-    sendPlanets(`https://swapi.dev/api/planets/${id}/`).catch((error) => {
-      console.log(error);
-    });
+    if (!isError) {
+      renderPeople(`https://swapi.dev/api/people/${id}/`).catch((error) => {
+        statusBlock.textContent = 'Проблемы с сетью';
+        form.after(statusBlock)
+        setTimeout(() => {
+          statusBlock.remove(form);
+        }, 2000);
+      });
 
-    input.value = '';
+      renderPlanets(`https://swapi.dev/api/planets/${id}/`).catch((error) => {
+        console.log(error);
+      });
+
+      input.value = '';
+    }
+
   });
- 
+
 }
-render();
- 
-  // валидация ввода цифр
-  // const validate = () => {
-  //   console.log(input.value);
-  //   if (input.value.match(/[0-9]/gi)) {
-  //     render();
-  //   } else {
-  //     statusBlock.textContent = 'Введите число';
-  //     form.after(statusBlock)
-  //     setInterval(() => {
-  //       statusBlock.remove(form);
-  //     }, 2000);
-  //   }
-  // };
-  // validate()
+requestData();
+
+// валидация ввода цифр
+// const validate = () => {
+//   console.log(input.value);
+//   if (input.value.match(/[0-9]/gi)) {
+//     render();
+//   } else {
+//     statusBlock.textContent = 'Введите число';
+//     form.after(statusBlock)
+//     setInterval(() => {
+//       statusBlock.remove(form);
+//     }, 2000);
+//   }
+// };
+// validate()
 
 // функция стилей блока с предупреждением 
 const error = () => {
