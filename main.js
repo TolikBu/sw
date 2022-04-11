@@ -3,7 +3,7 @@
 const input = document.querySelector('.hero-form__input');
 const form = document.querySelector('.hero-form');
 const btnSubmit = document.querySelector('.hero-form__button')
-const statusBlock = document.createElement('div');
+const statusBlock = document.querySelector('.hero-error');
 
 
 
@@ -50,20 +50,22 @@ const requestData = () => {
     let id = input.value;
     let isError = false;
 
+    
+
     if (!/[\d]/g.test(input.value) && input.value !== '') {
       statusBlock.textContent = 'Введите число от 1 до 83';
-      form.after(statusBlock)
+      statusBlock.style.display = 'block';
       setTimeout(() => {
-        statusBlock.remove(form);
+        statusBlock.style.display = 'none';
       }, 2000);
     }
 
     if (!isError) {
       renderPeople(`https://swapi.dev/api/people/${id}/`).catch((error) => {
         statusBlock.textContent = 'Проблемы с сетью';
-        form.after(statusBlock)
+        statusBlock.style.display = 'block';
         setTimeout(() => {
-          statusBlock.remove(form);
+          statusBlock.style.display = 'none';
         }, 2000);
       });
 
@@ -78,11 +80,3 @@ const requestData = () => {
 
 }
 requestData();
-
-// функция стилей блока с предупреждением 
-const error = () => {
-  statusBlock.style.padding = '9px 10px';
-  statusBlock.style.color = 'red';
-}
-error()
-
