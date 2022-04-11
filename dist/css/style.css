@@ -417,6 +417,7 @@ img {
 .hero {
   padding: 110px 0 186px 0;
   position: relative;
+  overflow-x: hidden;
 }
 
 .hero-wrapper {
