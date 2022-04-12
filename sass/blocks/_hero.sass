@@ -1,7 +1,7 @@
 .hero
   padding: 110px 0 186px 0
   position: relative
-  overflow-x: hidden 
+  overflow: hidden
   &-wrapper
     position: relative
     max-width: 598px
@@ -10,20 +10,22 @@
     margin-bottom: 50px
   &-form
     @include flex
-    box-shadow: 3px 11px 13px 2px rgba(47, 49, 48, 0.08)
-    border-radius: 12px
-    overflow: hidden
     &__input
+      box-shadow: 3px 11px 13px 2px rgba(47, 49, 48, 0.08)
+      border-radius: 12px 0 0 12px
       width: 100%
       padding: 15px
       border: none
-      outline: none
+      outline: none 
+      overflow: hidden
     &__button
       padding: 15px 56px
       background-color: $yello
       color: $black
       border: none
       outline: none
+      box-shadow: 3px 11px 13px 2px rgba(47, 49, 48, 0.08)
+      border-radius: 0 12px 12px 0
   &-card
     max-width: 392px
     min-height: 282px
