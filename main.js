@@ -17,8 +17,8 @@ const texErrorPeople = 'Данного персонажа не существу�
 
 
 // функция получение параметров персонажа
-const renderPeople = async (url) => {
-  await fetch(url, {
+const renderPeople = (url) => {
+  return fetch(url, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -33,10 +33,15 @@ const renderPeople = async (url) => {
         colorEye.style.backgroundColor = data.eye_color;
       })
     } else {
-      console.log(error);
+      statusBlock.textContent = texErrorPeople;
+      statusBlock.style.display = 'block';
+      setTimeout(() => {
+        statusBlock.style.display = 'none';
+      }, 2000);
     }
   }).catch((error) => {
-    statusBlock.textContent = texErrorPeople;
+    console.log(error);
+    statusBlock.textContent = texError;
     statusBlock.style.display = 'block';
     setTimeout(() => {
       statusBlock.style.display = 'none';
@@ -45,8 +50,8 @@ const renderPeople = async (url) => {
 };
 
 // функция получения планеты
-const renderPlanets = async (url) => {
-  await fetch(url, {
+const renderPlanets = (url) => {
+  return fetch(url, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -65,7 +70,8 @@ const renderPlanets = async (url) => {
 
 
 // функция отрисовки полученных пааметров
-const requestData = () => {
+const requestData = (idPl) => {
+
 
   if (!/[\d]/g.test(input.value) && input.value !== ' ') {
 
@@ -74,20 +80,19 @@ const requestData = () => {
     setTimeout(() => {
       statusBlock.style.display = 'none';
     }, 2000);
-    
+
   } else {
     let idPeople = input.value;
     renderPeople(`https://swapi.dev/api/people/${idPeople}/`)
 
     // let idPlanets = idPeople(parseInt(idPeople.data.homeworld.match(/d+/), 10))
 
-    renderPlanets(`https://swapi.dev/api/planets/${idPeople
-}/`)
-    
+    renderPlanets(`https://swapi.dev/api/planets/${idPl}/`)
+
   }
 
   input.value = '';
-  
+
 }
 
 // функция отправки формы 

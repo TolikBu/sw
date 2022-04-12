@@ -674,6 +674,8 @@ img {
     max-width: 100%;
   }
   .hero-card__image {
+    width: 301px;
+    height: 308px;
     left: 50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
