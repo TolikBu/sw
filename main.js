@@ -18,8 +18,8 @@ const texErrorPeople = 'Данного персонажа не существу�
 
 
 // функция получение параметров персонажа
-const renderPeople = (url) => {
-  return fetch(url, {
+const renderPeople = async (url) => {
+  await fetch(url, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
