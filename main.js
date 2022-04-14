@@ -60,7 +60,7 @@ const home = (home) => {
 
 // функция получения планеты
 const renderPlanets = (url) => {
-  console.log(url);
+
   return fetch(url, {
     method: 'GET',
     headers: {
